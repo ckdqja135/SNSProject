@@ -56,7 +56,7 @@ public class SignUpActivity  extends AppCompatActivity {
                 case R.id.gotoLoginButton:
                     startLoginActivity();
                     break;
-            }// ㅁ
+            }
         }
     };
 
