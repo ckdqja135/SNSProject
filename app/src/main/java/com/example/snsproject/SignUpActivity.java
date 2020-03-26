@@ -38,6 +38,14 @@ public class SignUpActivity  extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
     }
 
+    @Override public void onBackPressed() { // 뒤로가기 시 앱이 종료하는 이벤트
+            super.onBackPressed();
+            // 앱을 종료 시켜버림.
+            moveTaskToBack(true);
+            android.os.Process.killProcess(android.os.Process.myPid());
+            System.exit(1);
+    }
+
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
