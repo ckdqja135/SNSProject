@@ -52,7 +52,7 @@ public class MemberActivity extends AppCompatActivity {
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             FirebaseFirestore db = FirebaseFirestore.getInstance();
             MemberInfo memberInfo = new MemberInfo(name, phoneNumber, birthDay, address);
-             if(user != null) { // null 처리 main에서 처리해서 null 가능성이 없지만 처리시켜준다.
+             if(user != null) { // null 처리 -> main에서 처리해서 null 가능성이 없지만 처리시켜준다.
                  db.collection("users").document(user.getUid()).set(memberInfo)
                      .addOnSuccessListener(new OnSuccessListener<Void>() {
                          @Override
