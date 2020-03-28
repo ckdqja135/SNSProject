@@ -54,7 +54,7 @@ public class SignUpActivity  extends AppCompatActivity {
                     signUp();
                     break;
                 case R.id.gotoLoginButton:
-                    startLoginActivity();
+                    myStartActivity(LoginActivity.class);
                     break;
             }
         }
@@ -75,6 +75,7 @@ public class SignUpActivity  extends AppCompatActivity {
                                 // Sign in success, update UI with the signed-in user's information
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 startToast("회원가입에 성공했습니다.");
+                                myStartActivity(MainActivity.class);
                             } else {
                                 if (task.getException() != null) { // null처리
                                     startToast(task.getException().toString());
@@ -95,8 +96,10 @@ public class SignUpActivity  extends AppCompatActivity {
         Toast.makeText(this, msg , Toast.LENGTH_SHORT).show();
     }
 
-    private void startLoginActivity() {
-        Intent intent=new Intent(this,LoginActivity.class);
+    private void myStartActivity(Class c) {
+        Intent intent=new Intent(this,c);
+        // 메인 액티비티에서 뒤로가기 했을 때, 앱이 꺼지게 하기 위해 -> 이걸 사용하지 않으면 로그인창으로 뒤로가기됨.
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
 }
