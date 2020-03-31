@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,7 +13,6 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MemberActivity extends AppCompatActivity {
@@ -44,7 +44,6 @@ public class MemberActivity extends AppCompatActivity {
     private void profileUpdate() {
         String name = ((EditText) findViewById(R.id.nameEditText)).getText().toString();
         String phoneNumber = ((EditText) findViewById(R.id.phoneNumberEditText)).getText().toString();
-
         String birthDay = ((EditText) findViewById(R.id.birthDayEditText)).getText().toString();
         String address = ((EditText) findViewById(R.id.addressEditText)).getText().toString();
 
@@ -52,6 +51,7 @@ public class MemberActivity extends AppCompatActivity {
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             FirebaseFirestore db = FirebaseFirestore.getInstance();
             MemberInfo memberInfo = new MemberInfo(name, phoneNumber, birthDay, address);
+
              if(user != null) { // null 처리 -> main에서 처리해서 null 가능성이 없지만 처리시켜준다.
                  db.collection("users").document(user.getUid()).set(memberInfo)
                      .addOnSuccessListener(new OnSuccessListener<Void>() {
