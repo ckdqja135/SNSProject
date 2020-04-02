@@ -1,4 +1,4 @@
-package com.example.snsproject;
+package com.example.snsproject.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.snsproject.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         if(user == null) { // 로그인이 안됐을 때 -> 로그인 여부 확인하는 부분
             myStartActivity(SignUpActivity.class);
         } else {
-            myStartActivity(CameraActivity.class);
+            myStartActivity(MemberActivity.class);
 
             FirebaseFirestore db = FirebaseFirestore.getInstance();
             DocumentReference docRef = db.collection("users").document(user.getUid());

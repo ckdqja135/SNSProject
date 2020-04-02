@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.snsproject;
+package com.example.snsproject.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
