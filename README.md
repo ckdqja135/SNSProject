@@ -17,7 +17,11 @@
 * Camera2 API + Storage 프로필 사진 촬영 및 저장
 
 # 2020- 04 - 02
-* Camera2 API + Storage 프로필 사진 촬영 및 저장
+* 프로필 선택 갤러리 화면 구현
+* 프로필 사진 선택방법
+  * 이미지 아이콘 선택 후 사진 선택하여 찍은 뒤, 뒤로가기.
+  * 이미지 아이콘 선택 후 갤러리 선택하여 맘에드는 사진 선택.
+* 코드 폴더 별로 분할
   * 참고 자료
     * 이미지 리스트: https://stackoverflow.com/questions/25957644/get-all-photos-from-android-device-android-programming
     * glide 라이브러리: https://bumptech.github.io/glide/doc/getting-started.html
