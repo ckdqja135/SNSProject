@@ -19,7 +19,7 @@
 # 2020- 03 - 31
 * Camera2 API + Storage 프로필 사진 촬영 및 저장
   * 참고자료 
-    > Camera2 APIGithub : https://github.com/googlearchive/android-Camera2Basic
+    > Camera2 APIGithub : https://github.com/googlearchive/android-Camera2Basic <BR />
     > stack overflow : https://stackoverflow.com/questions/33127258/front-camera-in-camera2-not-capturing-image/40597153#40597153
 # 2020- 04 - 02
 * 프로필 선택 갤러리 화면 구현
