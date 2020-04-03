@@ -15,7 +15,8 @@
 * 비밀번호 재설정 화면 및 회원 정보 추가 화면
 * 회원 정보 DB 연결
   * 참고자료
-    > Firebase 가이드 : https://firebase.google.com/docs/auth/android/manage-users?hl=ko
+    > Firebase 가이드 : https://firebase.google.com/docs/auth/android/manage-users?hl=ko <br />
+    > Firebase 홈페이지 : https://firebase.google.com/?hl=ko
 # 2020- 03 - 31
 * Camera2 API + Storage 프로필 사진 촬영 및 저장
   * 참고자료 
