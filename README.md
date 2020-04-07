@@ -38,6 +38,6 @@
 * 게시글 작성 화면 구현
 * 게시글 이미지 동영상 추가(FireBase 업로드)
   * 참고 자료
-  > 화면고정 : https://stackoverflow.com/questions/33497967/android-how-to-set-orientation-for-view <br />
-  > firebase 데이터 추가 : https://firebase.google.com/docs/firestore/manage-data/add-data?hl=ko <br />
-  > 파일 메타데이터 추가 : https://firebase.google.com/docs/storage/android/upload-files?hl=ko <br />
+    > 화면고정 : https://stackoverflow.com/questions/33497967/android-how-to-set-orientation-for-view <br />
+    > firebase 데이터 추가 : https://firebase.google.com/docs/firestore/manage-data/add-data?hl=ko <br />
+    > 파일 메타데이터 추가 : https://firebase.google.com/docs/storage/android/upload-files?hl=ko <br />
