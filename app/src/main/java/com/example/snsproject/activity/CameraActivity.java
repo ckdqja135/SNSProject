@@ -23,8 +23,6 @@ import android.media.ImageReader;
 import android.os.Bundle;
 import android.util.Log;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.snsproject.R;
 import com.example.snsproject.fragment.Camera2BasicFragment;
 
@@ -33,7 +31,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 
-public class CameraActivity extends AppCompatActivity {
+public class CameraActivity extends BasicActivity {
     private Camera2BasicFragment camera2BasicFragment;
     /**
      * This a callback object for the {@link ImageReader}. "onImageAvailable" will be called when a

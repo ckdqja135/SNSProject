@@ -48,22 +48,25 @@ public class GallaryAdapter extends RecyclerView.Adapter<GallaryAdapter.GallaryV
     public GallaryAdapter.GallaryViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // create a new view
         CardView cardView = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.item_gallary, parent, false);
-        return new GallaryViewHolder(cardView);
+
+        final GallaryViewHolder gallaryViewHolder = new GallaryViewHolder(cardView);
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent resultIntent = new Intent();
+                resultIntent.putExtra("profilePath", mDataset.get(gallaryViewHolder.getAdapterPosition()));
+                activity.setResult(Activity.RESULT_OK, resultIntent);
+                activity.finish();
+            }
+        });
+
+        return gallaryViewHolder;
     }
 
     // 여기서 데이터가 하나하나 들어옴.
     @Override
     public void onBindViewHolder(@Nonnull final GallaryViewHolder holder, final int position) {
         CardView cardView = holder.cardView;
-        cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent resultIntent = new Intent();
-                resultIntent.putExtra("profilePath", mDataset.get(holder.getAdapterPosition()));
-                activity.setResult(Activity.RESULT_OK, resultIntent);
-                activity.finish();
-            }
-        });
         ImageView imageView = holder.cardView.findViewById(R.id.imageView);
         Glide.with(activity).load(mDataset.get(position)).centerCrop().override(500).into(imageView); // 300사이즈의 이미지가 들어옴.
     }

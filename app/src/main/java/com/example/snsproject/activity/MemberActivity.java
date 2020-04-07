@@ -4,8 +4,6 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,11 +13,11 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.bumptech.glide.Glide;
 import com.example.snsproject.MemberInfo;
 import com.example.snsproject.R;
 import com.google.android.gms.tasks.Continuation;
@@ -39,7 +37,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
-public class MemberActivity extends AppCompatActivity {
+public class MemberActivity extends BasicActivity {
     private static final String TAG = "MemberinitActivity";
     private ImageView profileImageView;
     private String profilePath;
@@ -71,8 +69,7 @@ public class MemberActivity extends AppCompatActivity {
                     if (resultCode == Activity.RESULT_OK) {
                         profilePath = data.getStringExtra("profilePath");
                         Log.e("로그", "profilePath :" + profilePath);
-                        Bitmap bmp = BitmapFactory.decodeFile(profilePath);
-                        profileImageView.setImageBitmap(bmp);
+                        Glide.with(this).load(profilePath).centerCrop().override(500).into(profileImageView); // 300사이즈의 이미지가 들어옴.
                     }
                     break;
                 }
@@ -151,7 +148,7 @@ public class MemberActivity extends AppCompatActivity {
              //  null이면 정보만 보내고, 아니면 사진도 같이 보내라는 뜻.
              if(profilePath == null) {
                  MemberInfo memberInfo = new MemberInfo(name, phoneNumber, birthDay, address);
-                 Uploader(memberInfo);
+                 uploader(memberInfo);
              }else {
                  try {
                      InputStream stream = new FileInputStream(new File(profilePath));
@@ -170,7 +167,7 @@ public class MemberActivity extends AppCompatActivity {
                              if (task.isSuccessful()) {
                                  Uri downloadUri = task.getResult();
                                  MemberInfo memberInfo = new MemberInfo(name, phoneNumber, birthDay, address, downloadUri.toString());
-                                 Uploader(memberInfo);
+                                 uploader(memberInfo);
                              } else {
                                  Log.e("로그", "회원정보를 보내는데 실패하였습니다.");
                              }
@@ -185,7 +182,7 @@ public class MemberActivity extends AppCompatActivity {
         }
     }
 
-    private void Uploader(MemberInfo memberInfo) {
+    private void uploader(MemberInfo memberInfo) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection("users").document(user.getUid()).set(memberInfo)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
