@@ -41,3 +41,6 @@
     > 화면고정 : https://stackoverflow.com/questions/33497967/android-how-to-set-orientation-for-view <br />
     > firebase 데이터 추가 : https://firebase.google.com/docs/firestore/manage-data/add-data?hl=ko <br />
     > 파일 메타데이터 추가 : https://firebase.google.com/docs/storage/android/upload-files?hl=ko <br />
+    
+# 2020 - 04 - 09
+* 게시글 업로드 시 이미지 동영상 수정 기능 구현.
